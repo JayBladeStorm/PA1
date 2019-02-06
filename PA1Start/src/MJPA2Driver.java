@@ -37,10 +37,12 @@ public class MJPA2Driver {
           // Exercise the lexer: print out all of the tokens 
           java_cup.runtime.Symbol symbol = lexer.next_token();
           while (symbol.sym != sym.EOF) {
-              System.out.print("symbol: " + symbol + "  symbolValue: ");
+              System.out.print("symbol: " + symbol + "  symbolValue:  ");
               if(symbol.value!=null) {
                 SymbolValue symval = (SymbolValue)symbol.value;
-                System.out.println(" [" + symval.lexeme + "]" + symval.line);
+                String output=String.format("[%s  at: (%d,%d)  value: %d]",symval.lexeme,symval.line,symval.pos,symval.value);
+                System.out.println(output);
+                //System.out.println(" [" + symval.lexeme + "]" + symval.line+symval.pos);
               } else {
                 System.out.println(" null value");
               }

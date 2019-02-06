@@ -41,7 +41,17 @@ JAR = jar
 all: $(SCANNER).jar
 
 source: $(PARSE_DIR)/Yylex.java $(PARSE_DIR)/mj.java
-
+rerun:
+	make rebuild
+	clear
+	make run
+rebuild:
+	make clean
+	make source
+	make all
+run:
+	java -cp ./src:. $(SCANNER)Driver ./Testcases/errorcase.in
+	#java -cp ./src:. $(SCANNER)Driver ./Testcases/cmnt.in
 .PHONY:clean
 clean:
 	rm -rf $(SRC_DIR)/*.class $(SRC_DIR)/*/*.class
@@ -53,7 +63,7 @@ clean:
 
 ### Final jar files
 $(SCANNER).jar: $(SRC_DIR)/$(SCANNER)Driver.class
-	cd $(SRC_DIR); $(JAR) cmf $(SCANNER)MainClass.txt $(SCANNER).jar *.class */*.class */*/*.class -C $(JAVA_CUP_RUNTIME) java_cup  
+	cd $(SRC_DIR); $(JAR) cmf $(SCANNER)MainClass.txt $(SCANNER).jar *.class */*.class  -C $(JAVA_CUP_RUNTIME) java_cup  
 	cd ..
 	mv $(SRC_DIR)/$(SCANNER).jar .
 

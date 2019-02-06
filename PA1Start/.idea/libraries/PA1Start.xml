@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="PA1Start">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/MJPA2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/java-cup-11a.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JLex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/java-cup-11a-runtime.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
